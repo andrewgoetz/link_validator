@@ -20,11 +20,11 @@ Simply run the following command to kick off the unit tests.
 
 > Could the function be improved if the same list of links is being passed in many times, and what are the tradeoffs?
 
-If it was expected that the same urls would be passed in, we could cache the 'already checked urls' and check the cache first before performing the checks. This could improve execution time by eliminating repeated work, but would increase memory as we are now storing values in a cache.
+If it was expected that the same urls would be passed in, we could cache the 'previously processed urls' and check the cache first before performing the checks on a url. This could improve execution time by eliminating repeated work, but would increase memory as we are now storing values in a cache.
 
 > How might the function be written to process arbitrarily long lists of links?
 
-Because it the function has a few synchronous calls in it, the easiest way to have it handle longer lists of links would be to use multiple threads. This would allow us to run the blocking code on separate threads which would improve execution time.
+Because the function has a few synchronous calls in it, the easiest way to have it handle longer lists of links would be to use multiple threads. This would allow us to run the blocking code on separate threads which would improve execution time.
 
 > How might this function be exposed as an HTTP API to be used by a front-end application?
 
